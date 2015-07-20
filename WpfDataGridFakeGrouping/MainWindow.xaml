@@ -1,6 +1,7 @@
 ﻿<Window x:Class="WpfDataGridFakeGrouping.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wpfDataGridFakeGrouping="clr-namespace:WpfDataGridFakeGrouping"
         Title="MainWindow"
         Width="525"
         Height="350">
@@ -92,9 +93,13 @@
             <Setter Property="Template" Value="{StaticResource DefaultRowTemplate}" />
         </Style>
 
+        <wpfDataGridFakeGrouping:GridRowStyleSelector x:Key="RowStyleSelector"
+                                                      DefaultRowStyle="{StaticResource DefaultRowStyle}"
+                                                      GroupHeaderRowStyle="{StaticResource GroupHeaderRowStyle}" />
+
     </Window.Resources>
     <Grid>
-        <DataGrid ItemContainerStyleSelector="" ItemsSource="{Binding Rows}">
+        <DataGrid ItemContainerStyleSelector="{StaticResource RowStyleSelector}" ItemsSource="{Binding Rows}">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" />
                 <DataGridTextColumn Binding="{Binding Number}" />

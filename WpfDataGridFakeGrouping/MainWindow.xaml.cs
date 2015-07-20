@@ -12,8 +12,8 @@ namespace WpfDataGridFakeGrouping
             vm.Rows = new ObservableCollection<RowBase>
             {
                 new GroupingRow {Header = "Grouped header"},
-                new Row {Name = "Bob", Number = 123},
-                new Row {Name = "Alice", Number = 456}
+                new DefaultRow {Name = "Bob", Number = 123},
+                new DefaultRow {Name = "Alice", Number = 456}
             };
 
             DataContext = vm;
@@ -29,7 +29,7 @@ namespace WpfDataGridFakeGrouping
     {
     }
 
-    public class Row : RowBase
+    public class DefaultRow : RowBase
     {
         public string Name { get; set; }
         public int Number { get; set; }
